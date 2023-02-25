@@ -1,6 +1,7 @@
 # DBGB
 The code for "A Dual-Branch Learning Model with Gradient-Balanced Loss for Long-Tailed Multi-Label Text Classification", under-reviewed by TOIS.
-##Requirements
+
+## Requirements
 - python==3.8.10 
 - torch==1.7.1
 - torchvision==0.8.1
@@ -26,7 +27,7 @@ python src/main_base.py --epoch 20 --dataset wiki31k --swa --swa_warmup 10 --swa
 python src/main.py --lr 1e-4 --epoch 10 --dataset amazoncat13k --swa --swa_warmup 2 --swa_step 10000 --batch 16 --maskNum 0.7 --Gscale 2 --headtotail 0.2
 ```
 
-##Test
+## Test
 
 ```sh
 ###EUR-Lex
