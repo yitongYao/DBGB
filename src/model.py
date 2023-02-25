@@ -39,11 +39,11 @@ def get_inv_propensity(n,count_vector:list, a=0.55, b=1.5,othernum=0):
     number = np.append(count_vector,[0]*(othernum-len(count_vector)))
     c = (np.log(n) - 1) * ((b + 1) ** a)
     return 1.0 + c * (number + b) ** (-a)
-class LightXML(nn.Module):
+class DBGB(nn.Module):
     def __init__(self, n_labels, group_y=None, bert='bert-base', feature_layers=5, dropout=0.5, update_count=1,
                  candidates_topk=10, freq=None, maskNum = 0,scale = 0.5,headtotail=0.2,
                  use_swa=True, swa_warmup_epoch=10, swa_update_step=200, hidden_dim=300,Gscale=4,maxepoch = 30,train_num=15449):
-        super(LightXML, self).__init__()
+        super(DBGB, self).__init__()
 
         self.use_swa = use_swa
         self.swa_warmup_epoch = swa_warmup_epoch
@@ -294,7 +294,7 @@ class LightXML(nn.Module):
                     logits = outputs
                     if mode == 'eval':
                         labels = batch[3]
-                        _total, _acc1, _acc3, _acc5, _score3, _score,_den_1,_den_3,_den_5,_psp_1,_psp_3,_psp_5 ,_f1true,_f1pred=  self.get_accuracy(None, logits, labels.cpu().numpy())
+                        _total, _acc1, _acc3, _acc5, _score3, _score,_den_1,_den_3,_den_5,_psp_1,_psp_3,_psp_5 =  self.get_accuracy(None, logits, labels.cpu().numpy())
                         total += _total; acc1 += _acc1; acc3 += _acc3; acc5 += _acc5
                         score3 += _score3
                         score5 += _score

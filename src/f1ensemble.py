@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 from dataset_ens import MDataset, createDataCSV
 
 from sklearn import metrics
-from model import LightXML
+from model import DBGB
 from sklearn.preprocessing import MultiLabelBinarizer
 import argparse
 import warnings
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         model_name.append(str(args.Gscale))
         model_name.append(str(args.scale))
         model_name = '_'.join([i for i in model_name if i != ''])
-        model = LightXML(n_labels=n_labels, bert=berts[index],freq=freq)
+        model = DBGB(n_labels=n_labels, bert=berts[index],freq=freq)
         print(f'models/model-{model_name}.bin')
         model.load_state_dict(torch.load(f'models/model-{model_name}.bin'))
         tokenizer = model.get_tokenizer()
