@@ -27,6 +27,7 @@ python src/main.py --lr 1e-4 --epoch 10 --dataset amazoncat13k --swa --swa_warmu
 ```
 
 ##Test
+
 ```sh
 ###EUR-Lex
 python src/f1ensemble.py --dataset eurlex4k --maskNum 0.7 --Gscale 4 --headtotail 0.2
